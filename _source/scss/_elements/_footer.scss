@@ -1,0 +1,197 @@
+/************************************************************************/
+/* FOOTER STYLES
+/************************************************************************/
+
+.home footer[role="contentinfo"]:before {
+	display: none;
+}
+
+footer[role="contentinfo"] {
+	padding: 2rem 0;
+	position: relative;
+	text-align: center;
+	margin-bottom: 3rem;
+		
+	@include breakpoint($md){
+		padding: 4rem 0;
+		margin-bottom: 4rem;
+	}
+	@include breakpoint($lg){
+		margin-bottom: 5rem;
+	}
+		
+	&:before {
+		content: " ";
+		display: block;
+		@include position(absolute, 0 0 null 0);
+		margin: auto;
+		width: 90%;
+		max-width: 114rem;
+		height: 0.1rem;
+		background: $tan;
+	}
+	
+	.wrap {
+		flex-wrap: wrap;
+	}
+	p {
+		width: 100%;
+		margin: 1rem 0 0;
+		font-size: 1.6rem;
+		font-family: $heading_font;
+		font-weight: 600;
+		color: $tan;
+		
+		sup {
+			font-size: 80%;
+			top: 0;
+		}
+	}
+	.footer-logos {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		
+		img {
+			padding: 1rem 1.5rem;
+		}
+		a {
+			width: 50%;
+			order: 1;
+			
+			@include breakpoint($sm){
+				width: 11rem;
+			}
+			
+			&.logo {
+				display: inline-block;
+				width: 100%;
+				order: 0;
+				text-align: center;
+				margin-bottom: 1rem;
+				
+				@include breakpoint($sm){
+					width: 16rem;
+					order: 1;
+				}
+				
+				svg {
+					width: 16rem;
+				}
+			}
+		}
+	}
+	#footer_menu {
+		width: 100%;
+		font-size: 1.6rem;
+		font-family: $heading_font;
+		margin-bottom: 3rem;
+		
+		a {
+			display: block;
+			color: $tan;
+			margin: 0 1rem;
+			font-weight: 500;
+		}
+		ul {
+			width: 100%;
+			
+			@include breakpoint($sm){
+				display: flex;
+				flex-wrap: nowrap;
+				justify-content: center;
+			}
+			
+			li {
+				width: 100%;
+					
+				@include breakpoint($sm){
+					width: auto;
+				}
+			}
+		}
+	}
+	#social_menu {
+		width: 100%;
+		font-size: 2.4rem;
+		margin-bottom: 2rem;
+		
+		a {
+			display: block;
+			color: $tan;
+			margin: 0 0.3rem;
+			height: 2.4rem;
+			width: 2.4rem;
+			text-indent: -9999px;
+			position: relative;
+			
+			&:before {
+				@include position(absolute, 0 null null 0);
+				text-indent: 0;
+				font-family: "fontello";
+				font-style: normal;
+				font-weight: normal;
+				speak: none;
+				
+				display: inline-block;
+				text-decoration: inherit;
+				width: 1em;
+				margin: 0;
+				text-align: center;
+				/* opacity: .8; */
+				
+				/* For safety - reset parent styles, that can break glyph codes*/
+				font-variant: normal;
+				text-transform: none;
+				
+				/* fix buttons height, for twitter bootstrap */
+				line-height: 1em;
+								
+				/* you can be more comfortable with increased icons size */
+				/* font-size: 120%; */
+				
+				/* Font smoothing. That was taken from TWBS */
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+				
+				/* Uncomment for 3D effect */
+				/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+			}
+		}
+		ul {
+			width: 100%;
+			display: flex;
+			flex-wrap: nowrap;
+			justify-content: center;
+			
+			li {
+				width: auto;
+				
+				&.facebook {
+					a { @extend .icon-facebook-squared; }
+				}
+				&.twitter {
+					a { @extend .icon-twitter-squared; }
+				}
+				&.instagram {
+					a {
+						background: $tan;
+						color: $white;
+						border-radius: 0.3rem;
+						font-size: 1.8rem;
+					    height: 2.2rem;
+					    width: 2.2rem;
+						@extend .icon-instagram;
+						
+						&:before {
+							@include position(absolute, 0.2rem null null 0.2rem);
+						}
+					}
+				}
+			}
+		}
+	}
+	.hud-bug { width: 100%; text-align: center; }
+}

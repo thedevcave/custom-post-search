@@ -1,0 +1,52 @@
+/************************************************************************/
+/* HELPER CLASSES
+/************************************************************************/
+
+.video-wrapper {
+	width: 100%;
+	height: 0;
+	overflow: hidden;
+	padding-bottom: 56.25%; // 16:9
+	//padding-bottom: 75%; // 4:3
+	position: relative;
+	
+	embed,
+	object,
+	iframe {
+		@include position(absolute, 0 null null 0);
+		@include size(100%);
+	}
+}
+
+.aligncenter{ text-align: center; }
+.alignright{ text-align: right; }
+
+// Wordpress WYSIWYG img styles
+.full-width article, .content article { 
+	img{
+		display: block;
+		margin-bottom: 2rem;
+		
+		&.aligncenter { margin: 0 auto; }
+		
+		&.alignleft{
+			@include breakpoint($sm){
+				float: left;
+				margin-right: 3rem;
+			}
+			@include breakpoint($md){
+				margin-right: 6rem;
+			}
+		}
+		
+		&.alignright{
+			@include breakpoint($sm){
+				float: right;
+				margin-left: 3rem;
+			}
+			@include breakpoint($md){
+				margin-left: 6rem;
+			}
+		}
+	}
+}

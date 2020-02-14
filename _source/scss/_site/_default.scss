@@ -1,0 +1,749 @@
+/************************************************************************/
+/* DEFAULT PAGE STYLES
+/************************************************************************/
+
+#page_hero {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	
+	.hero-image {
+		width: 90%;
+		max-width: 128rem;
+		height: 28rem;
+		background-size: cover;
+		overflow: hidden;
+		
+		@include breakpoint($sm){
+			height: 34rem;
+		}
+		@include breakpoint($md){
+			height: 40rem;
+		}
+		
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.hero-circle {
+		@include position(absolute, 0 0 0 0);
+		margin: auto;
+		width: 0;
+		height: 0;
+		background: rgba($black, 0.9);
+		border-radius: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		max-width: 16rem;
+		max-height: 16rem;
+		
+		&.active {
+			animation: hero-circle-grow 0.75s 0.25s ease-in-out forwards;
+			
+			h1 { animation: fade-in 0.5s 0.75s ease-in-out forwards; }
+			.hero-outer-circle { animation: outer-circle-grow 0.5s 0.75s ease-in-out forwards; }
+		}
+			
+		@include breakpoint($sm){
+			max-width: 20rem;
+			max-height: 20rem;
+		}	
+		@include breakpoint($md){
+			max-width: 27.5rem;
+			max-height: 27.5rem;
+		}
+		
+		&.green {
+			background: rgba($green, 0.9);
+			
+			.hero-outer-circle { border-color: $green; }
+		}
+		&.red {
+			background: rgba($red, 0.9);
+			
+			.hero-outer-circle { border-color: $red; }
+		}
+		&.orange {
+			background: rgba($orange, 0.9);
+			
+			.hero-outer-circle { border-color: $orange; }
+		}
+		&.yellow {
+			background: rgba($yellow, 0.9);
+			
+			h1, h1 span { color: $black; }
+			.hero-outer-circle { border-color: $yellow; }
+		}
+		&.teal {
+			background: rgba($teal, 0.9);
+			
+			.hero-outer-circle { border-color: $teal; }
+		}
+		
+		h1 {
+			color: $white;
+			font-size: 2.5rem;
+			line-height: 1.1;
+			text-transform: uppercase;
+			margin: 0;
+			opacity: 0;
+			
+			@include breakpoint($sm){
+				font-size: 3rem;
+			}
+			@include breakpoint($md){
+				font-size: 4rem;
+			}
+			
+			span {
+				display: block;
+				color: $white;
+				font-size: 1rem;
+				line-height: 1;
+				@include letter-spacing(200);
+			
+				@include breakpoint($sm){
+					font-size: 1.2rem;
+				}
+				@include breakpoint($md){
+					font-size: 1.4rem;
+				}
+			}
+		}
+		.hero-outer-circle {
+			background: transparent;
+			opacity: 0;
+			border: 0.25rem solid $black;
+			border-radius: 100%;
+			width: 100%;
+			height: 100%;
+			@include position(absolute, 0 0 0 0);
+			margin: auto;
+			
+			@include breakpoint($sm){
+				border: 0.38rem solid $black;
+			}
+			@include breakpoint($md){
+				border: 0.5rem solid $black;
+			}
+		}
+	}
+}
+.header-border {
+	border-top: 0.6rem solid $lightgrey;
+}
+
+section[role="main"]{
+	padding: 3rem 0;
+	
+	@include breakpoint($md){
+		padding: 4rem 0;
+	}
+	@include breakpoint($lg){
+		padding: 5rem 0;
+	}
+}
+
+.content-section {
+	padding: 3rem 0;
+	text-align: center;
+	position: relative;
+	
+	@include breakpoint($md){
+		padding: 4rem 0;
+	}
+	@include breakpoint($lg){
+		padding: 5rem 0;
+	}
+	
+	&.pattern-section, &.split-content {
+		margin: 3rem 0;
+		padding: 4rem 0;
+	
+		@include breakpoint($md){
+			margin: 4rem 0;
+			padding: 6rem 0;
+		}
+		@include breakpoint($lg){
+			margin: 5rem 0;
+			padding: 8rem 0;
+		}
+		
+		header {
+			margin: 0;
+		}
+		.btn {
+			margin-top: 3rem;
+		}
+		
+		&.interior {
+			@include breakpoint($lg){
+				padding: 6rem 0;
+			}
+		}
+	}
+	&.split-content {
+		margin: 0;
+		.section-content {
+			h1, h2, h3, h4, h5, h6, p, ul { color: inherit }
+		}
+	}
+	
+	&.upcoming-events {
+		header {
+			width: 100%;
+			margin-bottom: 3rem;
+			
+			h3 { text-align: center }
+		}
+		.events-container {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: 3rem;
+			
+			@include breakpoint($md){
+				grid-template-columns: repeat(8, 1fr);
+			}
+			
+			.event-block {
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-gap: 0;
+				background: rgba($white, 0.8);
+				
+				@include breakpoint($sm){
+					grid-template-columns: repeat(2, 1fr);
+				}
+				@include breakpoint($md){
+					grid-column: span 4;
+					
+					&:last-child:nth-child(2n - 1) {
+						grid-column: 3 / span 4;
+					}
+					&:first-child:last-child {
+						grid-column: 2 / span 6;
+					}
+				}
+				
+				.event-image {
+					width: 100%;
+					height: 100%;
+					
+					img {
+						width: 100%;
+						height: 100%;
+						object-fit: cover;
+					}
+				}
+				.event-details {
+					display: flex;
+					align-items: center;
+					padding: 2rem;
+					text-align: left;
+					
+					h4 { margin-top: 0 }
+					p { 
+						margin-bottom: 0;
+						font-size: 1.5rem;
+						line-height: 1.6;
+					}
+					.btn { margin-top: 2rem }
+				}
+			}
+		}
+	}
+	
+	&.cta-section {
+		margin: 3rem 0;
+		padding: 4rem 0;
+	
+		@include breakpoint($md){
+			margin: 4rem 0;
+			padding: 6rem 0;
+		}
+		@include breakpoint($lg){
+			margin: 5rem 0;
+			padding: 8rem 0;
+		}
+		
+		&.content {
+			.cta-bg { max-width: 96rem; }
+		}
+		&.container {
+			.cta-bg { max-width: 120rem; }
+		}
+		
+		.cta-bg {
+			@include position(absolute, 0 0 null 0);
+			width: 100%;
+			height: 100%;
+			margin: 0 auto;
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
+			
+			.bg-overlay {
+				@include position(absolute, 0 0 null 0);
+				width: 100%;
+				height: 100%;				
+			}
+		}
+		
+		header {
+			margin: 0;
+		}
+		.btn {
+			margin-top: 3rem;
+		}
+		
+		&.interior {
+			@include breakpoint($lg){
+				padding: 6rem 0;
+			}
+		}
+	}
+		
+	.pattern-bg {
+		@include position(absolute, 0 null null 0);
+		width: 100%;
+		height: 100%;
+		opacity: 0.18;
+	}
+	header {
+		margin-bottom: 3rem;
+		text-transform: uppercase;
+		
+		@include breakpoint($md){ margin-bottom: 5rem }
+	}
+	article {
+		max-width: 98rem;
+		margin: 0 auto;
+		position: relative;
+		
+		.title-icon {
+			margin-bottom: 2.5rem;
+		}
+		h2, h3 {
+			margin: 0;
+		}
+		p {
+			margin: 1.5rem 0 3.5rem;
+			line-height: 1.8;
+		}
+	}
+}
+
+.full-width {
+	article {
+		text-align: left;
+		
+		p {
+			margin-bottom: 2rem;
+		}
+		h2:first-child, h3:first-child, h4:first-child {
+			margin-top: 0;
+		}
+		h2:not(:first-child), h3:not(:first-child), h4:not(:first-child) {
+			margin-top: 6rem;
+		}
+		:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+.with-sidebar {
+	.wrap {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 3rem;
+		
+		@include breakpoint($tablet){
+			grid-template-columns: 1fr 2fr;
+		}
+	}
+	&.sidebar-left {
+		.wrap {
+			@include breakpoint($tablet){
+				article { grid-row: 1; grid-column: 2; }
+				aside { grid-row: 1; grid-column: 1; }
+			}
+		}
+	}
+	&.sidebar-cta {
+		.wrap {
+			@include breakpoint($tablet){
+				grid-template-columns: 1fr 1fr;
+				grid-gap: 5rem;
+			}
+		}
+	}
+	
+	article {
+		width: 100%;
+		text-align: left;
+		
+		@include breakpoint($tablet){
+			ul {
+				column-count: 2;
+			}
+		}
+	}
+	aside {
+		width: 100%;
+		text-align: left;
+		margin: 0;
+		
+		&.cta-section {
+			margin: 0;
+			padding: 2rem;
+			
+			@include breakpoint($tablet){
+				padding: 3rem;
+			}
+			
+			header { position: relative }
+			h3 {
+				margin: 0 0 2rem;
+				padding-top: 0;
+				
+				&:before { display: none }
+			}
+			.btn { margin-top: 1.5rem }
+		}
+		
+		h3 {
+			position: relative;
+			margin: 0 0 4rem;
+			padding-top: 4rem;
+
+			
+			&:before {
+				content: '';
+				@include position(absolute, 0 null null 0);
+				background: $green;
+				width: 5.6rem;
+				height: 0.3rem;
+			}
+		}
+	}
+}
+
+.pattern-video, .pattern-gallery, .split-content {
+	
+	&:first-child {
+		margin-top: 0;
+	}
+	
+	&.video-right, &.gallery-right, &.media-right {
+		.wrap { flex-direction: row-reverse; }
+	}
+	
+	.wrap {
+		width: 90%;
+		
+		@include breakpoint($lg){
+			width: 100%;
+		}
+	}
+	
+	.pattern-bg {
+		height: calc(100% - 12rem);
+		top: 6rem;
+		
+		@include breakpoint($md){
+			height: calc(100% - 14rem);
+			top: 7rem;
+		}
+		@include breakpoint($lg){
+			height: calc(100% - 16rem);
+			top: 8rem;
+		}
+	}
+	.pattern-video-embed, .pattern-gallery-images, .section-media {
+		width: 100%;
+		
+		@include breakpoint($tablet){
+			width: 50%;
+		}
+	}
+	.pattern-text, .section-content {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		text-align: center;
+		padding: 6rem 0 8rem;
+		
+		@include breakpoint($tablet){
+			width: 45%;
+			text-align: left;
+			padding: 0;
+		}
+		
+		h3 {
+			width: 100%;
+			text-transform: uppercase;
+			margin: 0;
+		}
+	}
+}
+
+.nav-blocks {
+	
+	header { 
+		width: 100%;
+		
+		h4 {
+			text-align: center;
+			position: relative;
+			margin: 0;
+			
+			&:after {
+				content: '';
+				@include position(absolute, null 0 -2rem 0);
+				margin: auto;
+				background: $green;
+				width: 5.6rem;
+				height: 0.3rem;
+			}
+		}
+	}
+	
+	.image-block-nav {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		
+		&.amenities {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: 1.2rem;
+			
+			@include breakpoint($sm){
+				grid-template-columns: 1fr 1fr;
+			}
+			
+			.block { width: 100%; height: 32rem; }
+		}
+		
+		.block {
+			position: relative;
+			width: 28rem;
+			height: 36.5rem;
+			margin: 1.2rem 0.6rem;
+			
+			&:hover {
+				.block-circle {
+					color: $white;
+					
+					.hover-circle {
+						animation: nav-circle-grow 0.25s ease-in-out forwards;
+						
+						.hover-outer-circle {
+							animation: nav-outer-circle-grow 0.2s 0.2s ease-in-out forwards;
+						}
+					}
+				}
+			}
+			
+			.block-circle {
+				@include position(absolute, 0 0 0 0);
+				margin: auto;
+				background: $white;
+				color: $green;
+				text-transform: uppercase;
+				font-size: 1.8rem;
+				font-family: $heading_font;
+				border-radius: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+				width: 15rem;
+				height: 15rem;
+				transition: all 0.3s ease-in-out;
+				
+				span { z-index: 2; }
+				.hover-circle {
+					@include position(absolute, 0 0 0 0);
+					margin: auto;
+					width: 100%;
+					height: 100%;
+					background: $green;
+					border-radius: 100%;
+					animation: nav-circle-shrink 0.25s 0.1s ease-in-out forwards;
+					
+					.hover-outer-circle {
+						background: transparent;
+						opacity: 1;
+						border: 0.3rem solid $green;
+						border-radius: 100%;
+						width: 100%;
+						height: 100%;
+						@include position(absolute, 0 0 0 0);
+						margin: auto;
+						animation: nav-outer-circle-shrink 0.2s ease-in-out forwards;
+					}
+				}
+			}
+		}
+	}
+}
+
+.content-section.image-grid {
+	header, .image-grid-container, .image-grid-content { width: 100% }
+	.image-grid-container {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 0.3rem;
+		margin-bottom: 4rem;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
+		
+		@include breakpoint($sm){
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+		}
+		
+		.grid-image {
+			grid-column: span 1;
+			grid-row: span 1;
+			
+			&:first-child {
+				@include breakpoint($sm){
+					grid-row: 1 / span 2;
+				}
+			}
+			
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+	}
+}
+
+
+.builders-feature {
+	padding-top: 0;
+
+	header {
+    width: 100%;
+		margin: 0 0 2rem;
+    text-align: center;
+	}	
+	#builders_blocks {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 2rem;
+		margin: 0 0.5rem;
+		max-width: none;
+		width: 100%;
+		
+		@include breakpoint($sm){
+			grid-template-columns: 1fr 1fr;
+		}
+		@include breakpoint($md){
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		@include breakpoint($lg){
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+		}
+		
+		.builder {
+			width: 100%;
+			font-size: 1.6rem;
+	    //box-shadow: 0 0 0.5rem rgba(0,0,0,0.2);
+	    border-radius: 0.5rem;
+	    overflow: hidden;
+	    color: $white;
+	    
+	    @include breakpoint($md){
+		    &:last-child { grid-column: 2 / span 1 }
+	    }
+	    @include breakpoint($lg){
+		    &:last-child { grid-column: 4 / span 1 }
+	    }
+			
+/*
+			&.tan {
+				.logo-block { background: $tan }
+			}
+			&.dark-teal {
+				.logo-block { background: $darkteal }
+			}
+			&.green {
+				.logo-block { background: $green }
+			}
+			&.teal {
+				.logo-block { background: $teal }
+			}
+*/
+			
+			&.tan {
+				background: $tan;
+			}
+			&.dark-teal {
+				background: $darkteal;
+			}
+			&.green {
+				background: $green;
+			}
+			&.teal {
+				background: $teal;
+			}
+			
+			.logo-block {
+				width: 100%;
+				height: 10rem;
+				padding: 1.5rem 1.5rem 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				
+				img { max-height: 100% }
+			}
+			.builder-info {
+				padding: 2rem 1rem;
+				//border: 1px solid #dedede;
+				//border-top: 0;
+				height: calc(100% - 10rem);
+				border-radius: 0 0 0.5rem 0.5rem;
+				
+				h4 { margin: 0 auto 1.5rem }
+				address { 
+					font-style: normal;
+					
+					a { color: $white; text-decoration: underline; }
+				}
+				.btn { margin-top: 1rem; }
+			}
+		}
+	}
+}
+
+
+
+/* IE11 Hacks - please forgive me */		
+@media all and (-ms-high-contrast:none){
+	*::-ms-backdrop, #page_hero .hero-circle {
+		animation: none;
+		width: 16rem;
+		height: 16rem;
+			
+		@include breakpoint($sm){
+			width: 20rem;
+			height: 20rem;
+		}	
+		@include breakpoint($md){
+			width: 27.5rem;
+			height: 27.5rem;
+		}
+	}
+}

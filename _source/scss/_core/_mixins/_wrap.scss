@@ -1,0 +1,17 @@
+//------------------------------------------------------------------------
+// WRAP
+//------------------------------------------------------------------------
+@mixin wrap{
+	$w: $container + rem;
+	$c: calc(#{$w} / 10); 
+	max-width: $c;
+	@include padding($grid-padding);
+	@include margin(0 auto);
+}
+.wrap{ 
+	@include wrap; 
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	position: relative;
+}

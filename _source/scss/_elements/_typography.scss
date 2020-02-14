@@ -1,0 +1,253 @@
+/************************************************************************/
+/* TYPOGRAPHY
+/************************************************************************/
+
+a {
+	color: $link_color;
+	font-weight: $link_font_weight;
+	text-decoration: none;
+	transition: all 0.3s ease-in-out;
+	
+	&:active,
+	&:focus,
+	&:hover {
+		color: shade($link_color,25%);
+		outline: 0;
+	}
+	
+	&.tooltip-item {
+		position: relative;
+		
+		&::after {
+			background-color: $white;
+			border: $input_border;
+			color: $text_color;
+			font-size: modular-scale(-1);
+			content: attr(aria-label);
+			display: none;
+			@include position(absolute, null null 100% 0);
+			padding: 1rem;
+			pointer-events: none;
+		}
+	
+		&:hover::after,
+		&:focus::after{
+			display: inline-block;
+		}
+	}
+}
+
+p {
+	font-size: $base_font_size;
+	line-height: $base_line_height;
+	@include margin(null null 1.5rem null);
+}
+
+//------------------------------------------------------------------------
+// HEADINGS
+//------------------------------------------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+	color: $heading_color;
+	font-family: $heading_font;
+	font-weight: 500;
+	text-rendering: optimizelegibility;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+	
+	span {
+		color: $green;
+	}
+	.script {
+		display: block;
+		font-family: $script_font;
+		color: $script_color;
+		text-transform: none;
+		font-size: 150%;
+		line-height: 1;
+		margin: -0.3em auto 0;
+	}
+}
+
+h1 {
+	font-size: 3.2rem;
+}
+
+h2 {
+	font-size: 3.2rem;
+	text-transform: uppercase;
+	
+	@include breakpoint($md){
+		font-size: 3.8rem;
+	}
+	@include breakpoint($lg){
+		font-size: 4.2rem;
+	}
+}
+
+h3 {
+	font-size: 2.8rem;
+	font-weight: 600;
+	
+	@include breakpoint($md){
+		font-size: 3.2rem;
+	}
+	@include breakpoint($lg){
+		font-size: 3.5rem;
+	}
+}
+
+h4 {
+	font-size: 1.8rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	@include letter-spacing(80);
+}
+
+h5 {
+	font-size: 1.6rem;
+}
+
+h6 {
+	font-size: 1.4rem;
+}
+
+//------------------------------------------------------------------------
+// BASIC TYPOGRAPHY ELEMENTS
+//------------------------------------------------------------------------
+
+blockquote {
+	@extend p;
+	border-left: 2px solid $grey;
+	color: $grey;
+	font-style: italic;
+	@include padding(null null null 1.8rem);
+}
+
+ul,
+ol {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+article, aside {
+	
+	ul,
+	ol {
+		font-size: $base_font_size;
+		@include padding(null null null 1.8rem);
+		@include margin(null null 1.5rem null);
+		list-style-position: inside;
+		padding-left: 0.5rem;
+		
+		li {
+			line-height: 1.5;
+			@include margin(null null 0.5rem null);
+		}
+	    
+		ul,
+		ol {
+			@include margin(null null 0 null);
+		}
+  	}
+  	
+	ul { list-style-type: disc; }
+	ol { list-style-type: decimal; }
+}
+
+
+sup {
+	font-size: 0.9rem;
+	@include position(relative, -0.75rem null null null);
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+i,
+em{
+	font-style: italic;
+}
+
+small,
+.small{
+	font-size: 75%;
+}
+
+
+//------------------------------------------------------------------------
+// SOCIAL ICON FONT
+//------------------------------------------------------------------------
+
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello.eot?2000133');
+  src: url('../fonts/fontello.eot?2000133#iefix') format('embedded-opentype'),
+       url('../fonts/fontello.woff2?2000133') format('woff2'),
+       url('../fonts/fontello.woff?2000133') format('woff'),
+       url('../fonts/fontello.ttf?2000133') format('truetype'),
+       url('../fonts/fontello.svg?2000133#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?2000133#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon-mail:before { content: '\e800'; } /* '' */
+.icon-right-big:before { content: '\e801'; } /* '' */
+.icon-down-dir:before { content: '\e802'; } /* '' */
+.icon-star:before { content: '\e803'; } /* '' */
+.icon-zoom-in:before { content: '\e804'; } /* '' */
+.icon-left-big:before { content: '\e805'; } /* '' */
+.icon-location:before { content: '\e806'; } /* '' */
+.icon-cancel:before { content: '\e807'; } /* '' */
+.icon-angle-circled-right:before { content: '\f138'; } /* '' */
+.icon-instagram:before { content: '\f16d'; } /* '' */
+.icon-twitter-squared:before { content: '\f304'; } /* '' */
+.icon-facebook-squared:before { content: '\f308'; } /* '' */

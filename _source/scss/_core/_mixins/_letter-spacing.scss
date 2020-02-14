@@ -1,0 +1,15 @@
+//------------------------------------------------------------------------
+// LETTER SPACING
+//------------------------------------------------------------------------
+// Calcluates the CSS letter spacing based on Photoshop letter spacing value.
+
+@mixin letter-spacing($s){
+	$calc: unquote( ( $s / 1000 ) + 'em' );
+	letter-spacing: #{$calc};
+}
+
+/* example
+.letter-spacing {
+  @include letter-spacing(50);
+}
+*/

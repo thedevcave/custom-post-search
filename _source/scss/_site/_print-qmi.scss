@@ -1,0 +1,326 @@
+/************************************************************************/
+/* PRINT QMI STYLES
+/************************************************************************/
+
+
+#template_page-print-qmi {
+	-webkit-print-color-adjust: exact;
+	padding: 0;
+	width: 100%;
+	
+	.screen-only {
+		display: block;
+	}
+	.print-only {
+		display: none;
+	}
+	
+	.wrap {
+		width: 90%;
+		max-width: 99rem;
+	}
+	
+	.date {
+		width: 100%;
+		font-style: italic;
+		font-size: 1.4rem;
+		margin-top: 1rem;
+		text-align: right;
+	}
+	
+	.page-break {
+		display: block;
+		page-break-before: always;
+	}
+	
+	table.qmi-results {
+		border-collapse: separate;
+		margin: 2rem 0 4rem;
+			
+		thead, .thead {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+			text-align: left;
+			
+			@include breakpoint($desktop){
+				position: static;
+			}
+			
+			th, td {
+				background: $brown;
+				border: 1px solid $brown;
+				color: $white;
+				padding: 1rem 1rem;
+				font-size: 1.3rem;
+				font-weight: 400;
+				
+				&:first-of-type{
+					border-radius: 3px 0 0 0;
+				}
+				&:last-of-type{
+					border-radius: 0 3px 0 0;
+				}
+			}
+		}
+		tbody {		
+			@include breakpoint($desktop){
+				border-bottom: 1px solid $lightgrey;
+				border-radius: 0 0 3px 3px;
+			}
+			
+			tr {
+				display: block;
+				border-radius: 3px;
+				box-shadow: rgba(0,0,0,0.1) 2px 2px 0;
+				margin-bottom: 2rem;
+				
+				&:last-child {
+					margin: 0;
+				}
+				
+				@include breakpoint($desktop){
+					display: table-row;
+					margin-bottom: 0;
+					padding: 0;
+					border-radius: 0;
+					box-shadow: none;
+					
+					&:nth-child(odd) {
+						background: #f0f0f0;
+					}
+					
+					&:last-child {
+						td {
+							border-bottom: 1px solid $lightgrey;
+							
+							&:first-child {
+								border-radius: 0 0 0 3px;
+							}
+							&:last-child {
+								border-radius: 0 0 3px 0;
+							}
+						}
+					}
+				}
+				
+				td {
+					background: lighten($lightgrey, 20%);
+					padding: 1rem 2rem;
+					font-weight: 400;
+					display: block;
+					font-size: 1.2rem;
+					line-height: 1.4rem;
+					
+					&:before {
+						content: attr(data-th)": ";
+						font-weight: 500;
+						width: 10rem;
+						display: inline-block;
+					}
+					
+					&:first-child {
+						padding: 2rem 2rem 1rem;
+						border-radius: 3px 3px 0 0;
+					}
+					&:last-child {
+						padding: 1rem 2rem 1.5rem;
+						border-radius: 0 0 3px 3px;
+					}
+					
+					@include breakpoint($desktop){
+						display: table-cell;
+						background: none;
+						padding: 1rem;
+						
+						&:before {
+							display: none;
+						}
+					
+						&:first-of-type, &:last-of-type {
+							border-radius: 0;
+							padding: 1rem;
+						}
+						&:first-of-type {
+							border-left: 1px solid $lightgrey;
+						}
+						&:last-of-type {
+							border-right: 1px solid $lightgrey;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	.qmi_disclaimer {
+		margin-bottom: 4rem;
+		
+		.text {
+			
+			p {
+				font-size: 1.2rem;
+			}
+			.blue { 
+				color: $teal;
+			}
+		}
+		.logo {
+			    
+			img {
+				position: relative;
+				
+				@include breakpoint($lg){
+					top: 3.5rem;
+				}
+			}
+		}
+	}
+}
+
+@media print {
+	#template_page-print-qmi {
+		.wrap {
+			width: 100%;
+		}
+		
+		.screen-only {
+			display: none;
+		}
+		.print-only {
+			display: block;
+		}
+		
+		header[role="banner"]{
+			display: block;
+			
+			img {
+				width: 10rem;
+			}
+			h1 {
+				font-size: 4.5rem;
+			}
+			
+			&#victory_banner {				
+				h1 {
+					font-size: 5rem;
+					text-align: center;
+					line-height: 0.9;
+					padding-bottom: 2.5rem;
+					
+					span {
+						font-size: 3rem;
+					}
+				}
+			}
+		}
+		
+		
+		table.qmi-results {
+			border-collapse: separate;
+			margin-bottom: 2rem;
+				
+			thead, .thead {
+				position: static;
+				background: $lightgrey;
+				
+				th, td {
+					background: $brown;
+					border-top: 1px solid $brown !important;
+					border-bottom: 1px solid $brown !important;
+					border-left: 0;
+					border-right: 0;
+					color: $white;
+					padding: 1rem 1rem;
+					font-size: 1.2rem;
+					font-weight: 400;
+				
+					&:first-of-type {
+						border-left: 1px solid $brown !important;
+					}
+					&:last-of-type {
+						border-right: 1px solid $brown !important;
+					}
+				}
+			}
+			tbody {		
+				//border-bottom: 1px solid $lightgrey !important;
+				
+				tr {					
+					display: table-row;
+					margin-bottom: 0;
+					padding: 0;
+					border-radius: 0;
+					box-shadow: none;
+					page-break-inside: avoid;
+						
+					&:nth-child(odd) {
+						background: #f0f0f0;
+					}
+					
+					td {
+						font-weight: 400;
+						font-size: 1.1rem;
+						display: table-cell;
+						background: none;
+						padding: 1rem;
+						//border-bottom: 1px solid $lightgrey !important;
+						page-break-inside: avoid;
+						
+						&:before {
+							display: none;
+						}
+					
+						&:first-of-type, &:last-of-type {
+							padding: 1rem;
+						}
+						&:first-of-type {
+							border-left: 1px solid $lightgrey !important;
+						}
+						&:last-of-type {
+							border-right: 1px solid $lightgrey !important;
+						}
+					}
+				}
+			}
+		}
+	
+		.qmi_disclaimer {
+			margin-top: 1rem;
+			
+			.text {
+			    width: 100%;
+				
+				p {
+					font-size: 1rem;
+					margin: 0;
+				}
+				.blue {
+					color: $teal;
+					
+					p {
+						margin-bottom: 1rem;
+					}
+				}
+			}
+		}
+		
+		footer {
+			display: none;
+		}
+		
+		.overlay {
+			display: none;
+		}
+	}
+	footer[role="contentinfo"]{
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		
+		#footer_menu, #social_menu, .footer-logos {
+			display: none;
+		}
+	}
+}

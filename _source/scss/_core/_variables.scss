@@ -1,0 +1,86 @@
+//------------------------------------------------------------------------
+// VARIABLES
+//------------------------------------------------------------------------
+
+$black: rgb(33,39,46);			// #21272e
+$grey: rgb(209,208,206);		// #d1d0ce
+$lightgrey: rgb(235,234,232);	// #ebeae8
+$brown: rgb(107,97,86);			// #6b6156
+$tan: rgb(181,171,159);			// #b5ab9f
+$white: rgb(255,255,255);		// #ffffff
+
+// Site Colors
+
+$green: rgb(157,185,92);		// #9eb909
+$red: rgb(178,53,37);		// #b23525
+$orange: rgb(206,150,64);	// #ce9640
+$yellow: rgb(243,236,80);	// #f3ec50
+$teal: rgb(42,169,170);		// #2aa9aa
+$darkteal: rgb(51,82,88);	// #335258
+$msggreen: rgb(60,150,10);	// Used for Success Messages
+$msgred: rgb(225,0,0); 		// Used for Error Messages
+$bgcolor: $white;
+
+// Typography
+
+$text_color: $black;
+$base_font: "adriane",Georgia,Verdana,Times,serif;
+$base_font_size: 1.8rem;
+$base_font_weight: 400;
+$base_line_height: 1.5;
+
+$heading_font: "proxima-nova",Helvetica,Arial,sans-serif;
+$heading_color: $black;
+
+$script_font: "lakeside","proxima-nova",Helvetica,Arial,sans-serif;
+$script_color: $green;
+
+
+// Links
+
+$link_color: $teal;
+$link_font_weight: 700;
+$link_hover: shade($red,30%);
+
+// Elements
+
+$placeholder_color: $tan;
+$input_border: 1px solid $tan;
+$input_border_radius: 0;
+$input_padding: 1.5rem 1rem 0.5rem;
+$input_margin: 0;
+$input_focus_glow: 0 0 0.5rem rgba($red,0.5);
+
+
+// Buttons
+
+$btn_border_width: 2px;
+$btn_border_style: solid;
+$btn_font: $heading_font;
+$btn_font_size: 1.8rem;
+$btn_font_weight: 600;
+$btn_line_height: 1;
+$btn_padding: 1rem 3rem;
+$btn_border_radius: 0;
+
+
+//------------------------------------------------------------------------
+// GRID VARIABLES
+//------------------------------------------------------------------------
+
+// Column & Container & Thingzzz
+$wrap: 1140;
+$container: $wrap + 60;
+$c: $container + px;
+
+// Breakpoints
+$xs: 320px;
+$sm: 600px;
+$tablet: 768px;
+$md: 900px;
+$desktop: 1032px;
+$lg: $c;
+$xl: 1500px;
+
+// Other Grid Variables
+$grid-padding: 0 3rem;

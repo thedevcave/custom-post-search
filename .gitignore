@@ -1,0 +1,10 @@
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+.DS_Store
+/node_modules
+/assets/css
+/assets/js
+*.scssc
+node_modules
