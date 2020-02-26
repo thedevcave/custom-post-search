@@ -1,0 +1,5 @@
+header[role="banner"] {
+	@include clearfix;
+	background-color: rgba($black,0.75);
+	padding: 2rem 0;
+}

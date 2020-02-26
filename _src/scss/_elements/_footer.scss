@@ -1,0 +1,5 @@
+footer[role="contentinfo"] {
+	@include clearfix;
+	background-color: $lightgrey;
+	padding: 2rem 0;
+}

@@ -1,0 +1,6 @@
+@mixin wrap{
+	max-width: unquote($xl);
+	padding: 0 1.5rem;
+	margin: 0 auto;
+}
+.wrap{ @include wrap; }
