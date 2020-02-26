@@ -1,0 +1,32 @@
+@mixin btn($btn-bg, $btn-border, $btn-color) {
+	@extend .btn-static;
+	background: $btn-bg;
+	border-color: $btn-border;
+	color: $btn-color;
+
+	&:visited, &:active, &:focus {
+		background: $btn-bg;
+		border-color: $btn-border;
+		color: $btn-color;
+	}
+}
+
+@mixin btn-static{
+	border-width: $btn-border-width;
+	border-style: $btn-border-style;
+	border-radius: $btn-border-radius;
+	font-family: $btn-font;
+	font-size: $btn-font-size;
+	font-weight: $btn-font-weight;
+	text-decoration: $btn-text-decoration;
+	text-transform: $btn-text-transform;
+	@include letter-spacing(0);
+	line-height: $btn-line-height;
+	padding: $btn-padding;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	transition: all 0.2s ease-in-out;
+}
+
+.btn-static{ @include btn-static; }

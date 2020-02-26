@@ -1,0 +1,68 @@
+// Default Colors
+$black: rgb(20,20,20); // #141414
+$darkgrey: rgb(51,51,51); // #333
+$grey: rgb(153,153,153); // #999
+$lightgrey: rgb(204,204,204); // #ccc
+$white: rgb(255,255,255); // #fff
+
+// Site Colors
+$blue: rgb(0,180,188); // #00b4bc
+$msggreen: rgb(60,150,10); // #3c960a - Used for Success Messages
+$msgred: rgb(225,0,0); // #e10000 - Used for Error Messages
+
+// defaults
+$bg-color: $white;
+$base-margin: 2rem;
+$base-padding: 2rem;
+
+// Typography
+$text-color: $darkgrey;
+$text-color-bg-color: $white;
+
+$base-font: $font-stack-helvetica;
+$base-font-size: 1.8rem;
+$base-font-weight: 400;
+$base-line-height: 1.2;
+
+$heading-font: $font-stack-helvetica;
+$heading-color: $black;
+
+// Links
+$link-color: $blue;
+$link-font-weight: 600;
+$link-hover: shade($link-color,30%);
+
+// Elements
+$placeholder_color: $grey;
+$input-border: 1px solid $grey;
+$input-border-radius: 5px;
+$input-padding: 1.5rem 2rem;
+$input-margin: 0 0 1rem;
+$input-focus-glow: 0 0 0.5rem rgba($blue,0.5);
+
+// Buttons
+$btn-border-width: 2px;
+$btn-border_style: solid;
+$btn-font: $base_font;
+$btn-font_size: 1.6rem;
+$btn-font-weight: 400;
+$btn-text-decoration: none;
+$btn-text-transform: capitalize;
+$btn-line-height: 1;
+$btn-padding: 1rem 2rem;
+$btn-border-radius: 10rem;
+
+// Column & Container & Thingzzz
+$wrap: 1140;
+
+$container: $wrap + 30;
+$c: $container + 'px';
+
+// Breakpoints
+$sm: 320px;
+$md: 600px;
+$md-lg: 768px;
+$lg: 900px;
+$lg-xl: 1024px;
+$xl: $c;
+$xxl: 1500px;
