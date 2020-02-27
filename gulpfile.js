@@ -1,25 +1,22 @@
 var gulp = require('gulp');
 var autoprefixer = require('gulp-autoprefixer');
-var bourbon = require('bourbon').includePaths;
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
-var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var notify = require('gulp-notify');
 var pump	= require('pump');
 
 // PATH objects
 var paths = {
-	js: ['_src/js/_functions.js','_src/js/_plugins.js','_src/js/scripts.js'],
+	js: ['_src/js/*.js'],
 	scss: ['./_src/scss/**/*.scss'],
-	inc: [bourbon, 'node_modules/breakpoint-sass/stylesheets']
+	inc: ['node_modules/breakpoint-sass/stylesheets']
 };
 
 // Minify JS
 gulp.task('js', function(e) {
 	pump([
 			gulp.src(paths.js),
-			concat('scripts.js'),
 			uglify(),
 			gulp.dest('assets/js/')
 		],e)
